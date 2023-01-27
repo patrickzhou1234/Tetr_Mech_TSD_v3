@@ -11,6 +11,10 @@ Rotate() {
 }
 return
 
+Drop() {
+    Send, {Space down}1{Space up}
+}
+
 newPiece() {
     PixelSearch, Px, Py, x1, y1, x2, y2, 0xC03ACE, 1, Fast
     if (ErrorLevel=0) {
@@ -20,9 +24,10 @@ newPiece() {
             Loop, 2 {
                 Send, {Right down}100{Right up}
             }
+            Sleep, 100
             Send, {Down down}100{Down up}
             Rotate()
-            Send, {Space down}100{Space down}
+            Drop()
         } else {
             Send, {c down}100{c up}
         }
@@ -41,7 +46,7 @@ newPiece() {
                 Send, {Left down}100{Left up}
             }
         }
-        Send, {Space down}100{Space up}
+        Drop()
     }
     PixelSearch, Px, Py, x1, y1, x2, y2, 0x2970E3, 1, Fast
     if (ErrorLevel=0) {
@@ -52,13 +57,13 @@ newPiece() {
             Send, {Right down}100{Right up}
         }
         Sleep, 100
-        Send, {Space down}100{Space up}
+        Drop()
     }
     PixelSearch, Px, Py, x1, y1, x2, y2, 0xCE3A53, 1, Fast
     if (ErrorLevel=0) {
         Rotate()
         Send, {Left down}100{Left up}
-        Send {Space down}100{Space up}
+        Drop()
     }
     PixelSearch, Px, Py, x1, y1, x2, y2, 0x29BEE3, 1, Fast
     if (ErrorLevel=0) {
@@ -73,7 +78,7 @@ newPiece() {
                 Send, {Left down}100{Left up}
             }
         }
-        Send, {Space down}100{Space up}
+        Drop()
     }
     PixelSearch, Px, Py, x1, y1, x2, y2, 0x29E39E, 1, Fast
     if (ErrorLevel=0) {
@@ -81,12 +86,13 @@ newPiece() {
             tpiece:=1
             Rotate()
             Loop, 2 {
-                Send, {Right down}250{Right up}
+                Send, {Right down}100{Right up}
             }
-            Send, {Down down}100{Down up}
+            Sleep, 200
+            Send, {Down down}1{Down up}
             Rotate()
-            Sleep, 100
-            Send, {Space down}100{Space up}
+            Sleep, 200
+            Drop()
         } else {
             Send, {c down}100{c up}
         }
@@ -95,9 +101,10 @@ newPiece() {
     if (ErrorLevel=0) {
         Rotate()
         Send, {Right down}100{Right up}
+        Sleep, 100
         Send, {Down down}100{Down up}
         Send, {Left down}100{Left up}
-        Send, {Space down}100{Space up}
+        Drop()
     }
     Sleep, 1
 }
