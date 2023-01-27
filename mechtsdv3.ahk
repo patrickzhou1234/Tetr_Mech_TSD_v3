@@ -86,10 +86,11 @@ newPiece() {
             tpiece:=1
             Rotate()
             Loop, 2 {
-                Send, {Right down}100{Right up}
+                Send, {Right down}200{Right up}
             }
             Sleep, 200
-            Send, {Down down}1{Down up}
+            Send, {Down down}100{Down up}
+            Sleep, 200
             Rotate()
             Sleep, 200
             Drop()
